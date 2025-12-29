@@ -56,12 +56,4 @@ export const events: EventItem[] = [
     date: "March 3-5, 2026",
     time: "09:00 - 17:00",
   },
-//    {
-//     image: "/images/event6.png",
-//     title: "React Europe 2026",
-//     slug: "react-europe-2026",
-//     location: "Paris, France",
-//     date: "May 6-8, 2026",
-//     time: "09:00 - 18:00",
-//   },
 ]
