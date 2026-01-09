@@ -82,7 +82,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
             <div className="details">
                 {/*    Left Side - Event Content */}
                 <div className="content">
-                    <Image src={image} alt="Event Banner" width={800} height={800} className="banner" />
+                    <Image src={image} alt="Event Banner" width={800} height={800} className="banner"  />
 
                     <section className="flex-col-gap-2">
                         <h2>Overview</h2>
@@ -99,15 +99,14 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
                         <EventDetailItem icon="/icons/audience.svg" alt="audience" label={audience} />
                     </section>
 
-                    <EventAgenda agendaItems={agenda} />
+                    {agenda && agenda.length > 0 && <EventAgenda agendaItems={agenda} />}
 
                     <section className="flex-col-gap-2">
                         <h2>About the Organizer</h2>
                         <p>{organizer}</p>
                     </section>
 
-                    <EventTags tags={tags} />
-                </div>
+                    {tags && tags.length > 0 && <EventTags tags={tags} />}                </div>
 
                 {/*    Right Side - Booking Form */}
                 <aside className="booking">
