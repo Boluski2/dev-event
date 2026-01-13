@@ -5,6 +5,8 @@ import Event from './event.model';
 export interface IBooking extends Document {
   eventId: Types.ObjectId;
   email: string;
+  emailConfirmed: boolean; // Add this field
+  emailSentAt: Date; // Add this field
   createdAt: Date;
   updatedAt: Date;
 }
@@ -23,16 +25,22 @@ const BookingSchema = new Schema<IBooking>(
       lowercase: true,
       validate: {
         validator: function (email: string) {
-          // RFC 5322 compliant email validation regex
           const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
           return emailRegex.test(email);
         },
         message: 'Please provide a valid email address',
       },
     },
+    emailConfirmed: {
+      type: Boolean,
+      default: false,
+    },
+    emailSentAt: {
+      type: Date,
+    },
   },
   {
-    timestamps: true, // Auto-generate createdAt and updatedAt
+    timestamps: true,
   }
 );
 
