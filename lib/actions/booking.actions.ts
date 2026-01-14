@@ -26,7 +26,7 @@ import Booking from '@/database/booking.model';
 import connectDB from "@/lib/mongodb";
 import { sendEmail } from '@/lib/email';
 import { generateBookingConfirmationEmail } from '@/lib/email-templates';
-import Event from '@/database/event.model'; // You'll need to import Event model
+import Event from '@/database/event.model'; 
 
 export const createBooking = async ({ 
   eventId, 
