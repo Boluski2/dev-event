@@ -7,7 +7,7 @@ import BookEvent from "@/components/BookEvent";
 import EventCard from "@/components/EventCard";
 import {cacheLife} from "next/cache";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const EventDetailItem = ({ icon, alt, label }: { icon: string; alt: string; label: string; }) => (
     <div className="flex-row-gap-2 items-center">
@@ -42,7 +42,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
 
     let event;
     try {
-        const request = await fetch(`${BASE_URL}/api/events/${slug}`, {
+        const request = await fetch(`https://devevent-five.vercel.app/api/events/${slug}`, {
             next: { revalidate: 60 }
         });
 
